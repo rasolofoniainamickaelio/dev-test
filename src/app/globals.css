@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Palette : ardoise + accent ambre unique, emprunte a la lanterne de toit. */
+  --color-ardoise: #22303f;
+  --color-ardoise-clair: #5a6b7a;
+  --color-filet: #c7ced4;
+  --color-fond: #ffffff;
+  --color-fond-alt: #edf0f2;
+  --color-ambre: #e4a11b;
+  --color-ambre-clair: #fbeacb;
+  --color-vert-route: #17694c;
+  --color-vert-clair: #dcece5;
+  --color-rouge-signal: #a8271c;
+  --color-rouge-clair: #f6dedc;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Le rayon est reserve a l'interactif : il signale "ceci repond au clic". */
+  --radius-action: 4px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-fond);
+    color: var(--color-ardoise);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  /*
+   * L'ambre plafonne a 2,1:1 sur blanc : il ne sert jamais de couleur de texte,
+   * seulement de remplissage, d'anneau de focus et de filet.
+   */
+  :focus-visible {
+    outline: 2px solid var(--color-ambre);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-ambre);
+    color: var(--color-ardoise);
+  }
+}
+
+@layer components {
+  .text-display {
+    font-weight: 700;
+    font-stretch: 88%;
+    font-size: clamp(2.25rem, 7vw, 3.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  .text-section {
+    font-weight: 600;
+    font-size: clamp(1.375rem, 3vw, 1.875rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  /* Capitales espacees : reservees aux en-tetes de colonne, convention du genre. */
+  .text-colonne {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+
+  /* Monospace uniquement sur les donnees qui doivent s'aligner en colonne. */
+  .text-donnee {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .prose-limite {
+    max-width: 66ch;
+  }
+
+  .gouttiere {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
