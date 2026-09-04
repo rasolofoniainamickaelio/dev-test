@@ -1,10 +1,11 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
+type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'danger' | 'ghost';
 type ButtonSize = 'sm' | 'md';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary: 'bg-ardoise text-white hover:bg-ardoise/90 disabled:bg-ardoise-clair',
+  accent: 'bg-ambre text-ardoise hover:bg-ambre/90',
   secondary: 'border border-filet bg-white text-ardoise hover:bg-fond-alt',
   danger: 'border border-rouge-signal bg-white text-rouge-signal hover:bg-rouge-clair',
   ghost: 'text-ardoise-clair hover:text-ardoise underline underline-offset-4',

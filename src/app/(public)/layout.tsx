@@ -10,7 +10,7 @@ const NAV_LINKS = [
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 bg-white border-filet border-b">
+      <header className="sticky top-0 bg-white border-filet border-b z-99">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-8 lg:px-10">
           <Link href="/" className="font-semibold">
             {COMPANY_NAME}
